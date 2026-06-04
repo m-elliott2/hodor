@@ -1,2 +1,2 @@
-pyinstaller --onefile --windowed --icon="asset/hodor.ico" Hodor.py
+pyinstaller --onefile --windowed --icon="asset/hodor.ico" --add-data="asset/hodor.png;asset" Hodor.py
 pause

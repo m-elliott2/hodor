@@ -13,16 +13,21 @@ Example:
 import argparse
 import time
 import threading
+import sys
+import os
 from PIL import Image
 from pynput.keyboard import Key, Controller
 from pystray import Icon as icon, MenuItem as item, Menu
 
-import argparse
-import time
-import threading
-from PIL import Image
-from pynput.keyboard import Key, Controller
-from pystray import Icon as icon, MenuItem as item, Menu
+def get_resource_path(relative_path):
+    """Get absolute path to resource, works for dev and for PyInstaller."""
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS  # type: ignore
+    except Exception:
+        base_path = os.path.abspath(".")
+    
+    return os.path.join(base_path, relative_path)
 
 class HodorApp:
     def __init__(self, interval: int):
@@ -35,17 +40,17 @@ class HodorApp:
 
     def hold_the_door(self):
         """
-        Presses the Num Lock key twice at the specified interval to prevent the
-        system from locking.
+        Presses the Shift key twice at the specified interval to prevent the
+        system from locking. Uses Shift to avoid Windows 11 toggle key popups.
         """
         print("Holding the door...")
         while self.running:
             print("Hodor")
-            # Press Num Lock twice to simulate activity without changing its state
-            self.keyboard.press(Key.num_lock)
-            self.keyboard.release(Key.num_lock)
-            self.keyboard.press(Key.num_lock)
-            self.keyboard.release(Key.num_lock)
+            # Press Shift twice to simulate activity without triggering Windows popups
+            self.keyboard.press(Key.shift)
+            self.keyboard.release(Key.shift)
+            self.keyboard.press(Key.shift)
+            self.keyboard.release(Key.shift)
             time.sleep(self.interval)
 
     def on_exit(self):
@@ -59,7 +64,7 @@ class HodorApp:
         """Starts the Hodor thread and the system tray icon."""
         self.hodor_thread.start()
         
-        image = Image.open("asset/hodor.png")
+        image = Image.open(get_resource_path("asset/hodor.png"))
         menu = Menu(
             item('Hodor', None, enabled=False),
             item(f'Interval: {self.interval}s', None, enabled=False),

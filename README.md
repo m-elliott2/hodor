@@ -1,6 +1,6 @@
 # Hodor
 
-A simple Python script to prevent your computer from locking by simulating keyboard activity. This script "holds the door" for you by periodically pressing the Num Lock key, twice in succession so your work goes uninterrupted, even if you're typing. The application runs in the system tray with a custom Hodor icon, allowing you to easily exit when you're done.
+A simple Python script to prevent your computer from locking by simulating keyboard activity. This script "holds the door" for you by periodically pressing the Shift key, twice in succession so your work goes uninterrupted, even if you're typing. The application runs in the system tray with a custom Hodor icon, allowing you to easily exit when you're done. Uses Shift key to avoid triggering Windows 11 toggle key popups.
 
 ![Hodor System Tray](asset/hodor.png)
 
@@ -10,7 +10,7 @@ A simple Python script to prevent your computer from locking by simulating keybo
 *   **System Tray Icon**: Runs discreetly in the system tray with a custom Hodor icon.
 *   **Configurable Interval**: Set the time between key presses via the command line.
 *   **Graceful Exit**: Easily exit the application through the system tray menu.
-*   **Silent Operation**: Designed to run silently in the background.
+*   **Silent Operation**: Designed to run silently in the background without triggering Windows popups.
 
 ## Installation
 

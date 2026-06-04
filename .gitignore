@@ -26,6 +26,8 @@ MANIFEST
 *.spec
 build/
 dist/
+*.manifest
+*.exe.log
 __pycache__/
 *.pyc
 *.pyo
