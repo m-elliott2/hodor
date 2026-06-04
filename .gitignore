@@ -50,3 +50,5 @@ venv.bak/
 *.swo
 *~
 pyinstaller.bat
+pyinstaller.txt
+
