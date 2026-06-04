@@ -1,6 +1,6 @@
 # Hodor
 
-A simple Python script to prevent your computer from locking by simulating keyboard activity. Inspired by the loyal character from Game of Thrones, this script "holds the door" for you by periodically pressing the Num Lock key.
+A simple Python script to prevent your computer from locking by simulating keyboard activity. This script "holds the door" for you by periodically pressing the Num Lock key, twice in succession so your work goes uninterrupted, even if you're typing. The application runs in the system tray with a custom Hodor icon, allowing you to easily exit when you're done.
 
 ![Hodor System Tray](asset/hodor.png)
 
