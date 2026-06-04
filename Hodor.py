@@ -66,7 +66,12 @@ class HodorApp:
             item('Valar Morghulis (Exit)', self.on_exit)
         )
         self.tray_icon = icon("Hodor", image, "Hodor", menu)
-        self.tray_icon.run()
+        
+        # Run the icon in a separate thread
+        self.tray_icon.run_detached()
+        
+        # Keep the main thread alive, waiting for the exit signal
+        self.hodor_thread.join()
 
 def main():
     """
